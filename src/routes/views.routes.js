@@ -4,7 +4,7 @@ const viewsRouter = express();
 
 viewsRouter.get('/', (req, res) => {
 
-    res.render('index', {});
+    res.render('chat', {});
 
 })
 

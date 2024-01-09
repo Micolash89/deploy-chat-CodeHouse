@@ -1,6 +1,7 @@
 const socket = io();
 let user;
-let chatBox = document.getElementById('chatBox');
+const chatBox = document.getElementById('chatBox');
+const nameUser = document.getElementById('name');
 
 Swal.fire({
     title: "Identificate",
@@ -13,7 +14,9 @@ Swal.fire({
 
 }).then(result => {
     user = result.value
+    nameUser.textContent = `Bienvenido ${user}`;
 });
+
 
 // chatBox.addEventListener('keyup', evt => {
 //     if (evt.key === "Enter") {
