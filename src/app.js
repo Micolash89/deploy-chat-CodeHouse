@@ -21,9 +21,20 @@ let messages = [];
 io.on('connection', socket => {
     console.log("nuevo cliente conectado");
 
-    socket.on('message', data => {
-        messages.push(data);
-        io.emit('messageLogs', messages);
-    })
+    // socket.on('message', data => {
+    //     messages.push(data);
+    //     io.emit('messageLogs', messages);
+    // })
+
+    socket.on('newuser', username => {
+        socket.broadcast.emit('update', username + ' joined the conversation');
+    });
+    socket.on('exituser', username => {
+        socket.broadcast.emit('update', username + ' left the conversation');
+    });
+    socket.on('chat', message => {
+        socket.broadcast.emit('chat', message);
+    });
 
 });
+

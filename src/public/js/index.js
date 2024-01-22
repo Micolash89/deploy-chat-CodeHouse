@@ -10,7 +10,12 @@ Swal.fire({
     inputValidator: (value) => {
         return !value && "Necesitas escribir u nnombre de usuario para continuar!"
     },
-    allowOutsideClick: false
+    allowOutsideClick: false,
+    customClass: {
+        title: 'mi-titulo',
+        confirmButton: 'mi-boton'
+    },
+    background: "#f5f5dc"
 
 }).then(result => {
     user = result.value
@@ -44,3 +49,5 @@ socket.on('messageLogs', data => {
     });
     log.innerHTML = messages;
 })
+
+

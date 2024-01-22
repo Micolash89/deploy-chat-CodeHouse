@@ -1,32 +1,27 @@
-
-
-
-
-
-
-
-
+<div>
+    <p id="name"></p>
+</div>
 <div class="app">
-    <div class="screen join-screen ">
+    <div class="screen join-screen active">
         <div class="form">
             <h2>Join ChatRoom</h2>
 
             <div class="form-imput">
                 <label for="">UserName</label>
-                <input type="text" id="userName">
+                <input type="text" id="username">
             </div>
             <div class="form-input">
                 <button id="join-user">Join</button>
             </div>
         </div>
     </div>
-    <div class="creen chat-screen active">
+    <div class="screen chat-screen ">
         <div class="header">
             <div class="logo">Chatroom</div>
             <button id="exit-chat">Exit</button>
         </div>
         <div class="messages">
-            <div class="message my-message">
+            {{!-- <div class="message my-message">
                 <div>
                     <div class="name">You</div>
                     <div class="text">Hi</div>
@@ -40,7 +35,7 @@
                     <div class="name">ABC</div>
                     <div class="text">Hi</div>
                 </div>
-            </div>
+            </div> --}}
         </div>
         <div class="typebox">
             <input type="text" id="message-input">
@@ -48,3 +43,7 @@
         </div>
     </div>
 </div>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/chat.js" ></script>
