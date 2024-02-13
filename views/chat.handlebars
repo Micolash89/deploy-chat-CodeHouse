@@ -2,23 +2,23 @@
   <p id="name"></p>
 </div>
 <form class="app">
-  <div class="screen join-screen active">
+  {{! <div class="screen join-screen active">
     <div class="form">
-      <h2>Join ChatRoom</h2>
+      <h2>Unirse a la Sala de Chat</h2>
 
       <div class="form-imput">
-        <label for="">UserName</label>
+        <label for="">Nombre de Usuario</label>
         <input type="text" id="username" />
       </div>
       <div class="form-input">
-        <button id="join-user">Join</button>
+        <button id="join-user">Unirse</button>
       </div>
     </div>
-  </div>
+  </div> }}
   <div class="screen chat-screen">
     <div class="header">
-      <div class="logo">Chatroom</div>
-      <button id="exit-chat">Exit</button>
+      <div class="logo">Sala de Chat</div>
+      <button type="button" id="exit-chat">Salir</button>
     </div>
     <div class="messages">
       {{! <div class="message my-message">
@@ -39,7 +39,7 @@
     </div>
     <div class="typebox">
       <input type="text" id="message-input" />
-      <button id="send-message" type="submit">Send</button>
+      <button id="send-message" type="submit">Enviar</button>
     </div>
   </div>
 </form>

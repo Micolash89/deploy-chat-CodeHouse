@@ -22,10 +22,10 @@ io.on('connection', socket => {
     console.log("nuevo cliente conectado");
 
     socket.on('newuser', username => {
-        socket.broadcast.emit('update', username + ' joined the conversation');
+        socket.broadcast.emit('update', username + ' Se unió a la conversación');
     });
     socket.on('exituser', username => {
-        socket.broadcast.emit('update', username + ' left the conversation');
+        socket.broadcast.emit('update', username + ' Dejó la conversación');
     });
     socket.on('chat', message => {
         socket.broadcast.emit('chat', message);

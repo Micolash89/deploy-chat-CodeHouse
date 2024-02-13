@@ -2,15 +2,15 @@
 
     const app = document.querySelector('.app');
     const socket = io();
+    const message = document.getElementById('message-input');
 
     const sendButton = document.getElementById("send-message");
     const join = document.getElementById('join-user');
+    const nameUser = document.getElementById('name');
+
 
     const form = document.querySelector('form');
-
     let uname;
-
-    const nameUser = document.getElementById('name');
 
     Swal.fire({
         title: "Identificate",
@@ -29,16 +29,16 @@
     }).then(result => {
         uname = result.value
         socket.emit('newuser', uname);
-        app.querySelector('.join-screen').classList.remove('active');
+        //app.querySelector('.join-screen').classList.remove('active');
         app.querySelector('.chat-screen').classList.add('active');
     });
 
 
     form.addEventListener('submit', (e) => {
+
         e.preventDefault();
 
         // sendButton.addEventListener('click', () => {
-        let message = document.getElementById('message-input');
 
         if (!message.value.length) return;
 
@@ -56,6 +56,7 @@
 
         // });
     });
+
     app.querySelector('.chat-screen #exit-chat').addEventListener('click', () => {
 
         socket.emit('exituser', uname);
@@ -85,8 +86,8 @@
 
             el.innerHTML = `
                 <div>
-                    <div clase="name">You</div>
-                    <div clase="text">${message.text}</div>
+                    <div class="name">Tu</div>
+                    <div class="text">${message.text}</div>
                 </div>
             `;
             messageContainer.appendChild(el);
@@ -96,8 +97,8 @@
             el.setAttribute('id', 'other-message');
             el.innerHTML = `
                 <div>
-                    <div clase="name">${message.username}</div>
-                    <div clase="text">${message.text}</div>
+                    <div class="name">${message.username}</div>
+                    <div class="text">${message.text}</div>
                 </div>
             `;
             messageContainer.appendChild(el);
