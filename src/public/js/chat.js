@@ -6,6 +6,7 @@
     const sendButton = document.getElementById("send-message");
     const join = document.getElementById('join-user');
 
+    const form = document.querySelector('form');
 
     let uname;
 
@@ -16,7 +17,7 @@
         input: "text",
         text: "Ingrese el usuario para indentificarte en el chat",
         inputValidator: (value) => {
-            return !value && "Necesitas escribir u nnombre de usuario para continuar!"
+            return !value && "Necesitas escribir un nombre de usuario para continuar!"
         },
         allowOutsideClick: false,
         customClass: {
@@ -33,7 +34,10 @@
     });
 
 
-    sendButton.addEventListener('click', () => {
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        // sendButton.addEventListener('click', () => {
         let message = document.getElementById('message-input');
 
         if (!message.value.length) return;
@@ -50,8 +54,8 @@
 
         message.value = '';
 
+        // });
     });
-
     app.querySelector('.chat-screen #exit-chat').addEventListener('click', () => {
 
         socket.emit('exituser', uname);
@@ -107,6 +111,5 @@
         messageContainer.scrollTop = messageContainer.scrollHeight - messageContainer.clientHeight;
 
     };
-
 
 })();

@@ -21,11 +21,6 @@ let messages = [];
 io.on('connection', socket => {
     console.log("nuevo cliente conectado");
 
-    // socket.on('message', data => {
-    //     messages.push(data);
-    //     io.emit('messageLogs', messages);
-    // })
-
     socket.on('newuser', username => {
         socket.broadcast.emit('update', username + ' joined the conversation');
     });

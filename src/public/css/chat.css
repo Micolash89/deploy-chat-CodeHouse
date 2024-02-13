@@ -183,3 +183,7 @@ body {
   border: none;
   cursor: pointer;
 }
+
+#message-input {
+  padding: 15px;
+}
